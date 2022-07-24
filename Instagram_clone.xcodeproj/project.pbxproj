@@ -32,6 +32,7 @@
 		DEF46679288C0F3F00BC85B0 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF46678288C0F3F00BC85B0 /* DatabaseManager.swift */; };
 		DEF4667B288C10E300BC85B0 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF4667A288C10E300BC85B0 /* AuthManager.swift */; };
 		DEF4667F288C124300BC85B0 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF4667E288C124300BC85B0 /* StorageManager.swift */; };
+		DEF46681288D31A000BC85B0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF46680288D31A000BC85B0 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		DEF46678288C0F3F00BC85B0 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		DEF4667A288C10E300BC85B0 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		DEF4667E288C124300BC85B0 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		DEF46680288D31A000BC85B0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EF3615B4AC5C180370F0C31C /* Pods_Instagram_clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram_clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,7 @@
 				DEF46678288C0F3F00BC85B0 /* DatabaseManager.swift */,
 				DEF4667A288C10E300BC85B0 /* AuthManager.swift */,
 				DEF4667E288C124300BC85B0 /* StorageManager.swift */,
+				DEF46680288D31A000BC85B0 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				DEF46666288AD69F00BC85B0 /* PostViewController.swift in Sources */,
 				DEF46670288AD76600BC85B0 /* SearchResultViewController.swift in Sources */,
 				DEF4665B288AD4DA00BC85B0 /* NotificationsViewController.swift in Sources */,
+				DEF46681288D31A000BC85B0 /* Extensions.swift in Sources */,
 				DEF4666E288AD74900BC85B0 /* SearchViewController.swift in Sources */,
 				DEF46661288AD63500BC85B0 /* LoginViewController.swift in Sources */,
 				DEF4667B288C10E300BC85B0 /* AuthManager.swift in Sources */,
@@ -507,9 +511,11 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -537,9 +543,11 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
