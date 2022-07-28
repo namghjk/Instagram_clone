@@ -186,7 +186,6 @@ class LoginViewController: UIViewController {
             width: headerView.width/2,
             height: headerView.height - view.safeAreaInsets.top
         )
-         
     }
     
     private func addSubviews(){
@@ -197,7 +196,6 @@ class LoginViewController: UIViewController {
         view.addSubview(termsButton)
         view.addSubview(createAccountButton)
         view.addSubview(headerView)
-        
     }
     
     
@@ -211,8 +209,39 @@ class LoginViewController: UIViewController {
                 return
             }
         
+        var username: String?
+        var email: String?
+        
         //Login funcionality
         
+        if usernameEmail.contains("@"), usernameEmail.contains("."){
+            //email
+            email = usernameEmail
+        } else {
+            //username
+            username = usernameEmail
+        }
+        
+        
+        AuthManager.shared.loginUser(username: username, email: email, password: password) { success in
+            
+            DispatchQueue.main.async {
+                if success{
+                    //user logged in
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    //error occurr1ed
+                    let alert = UIAlertController(title: "Log In Error",
+                                                  message: "We are able to log you in.",
+                                                  preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dissmiss",
+                                                  style: .cancel,
+                                                  handler: nil))
+                    self.present(alert, animated: true)
+                }
+            }
+            
+        }
         
     }
     
@@ -235,7 +264,8 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapCreateAccountButton(){
         let vc = RegistrationViewController()
-        present(vc, animated: true)
+        vc.title = "Create Account"
+        present(UINavigationController(rootViewController: vc), animated: true)
     }
     
     
@@ -262,7 +292,6 @@ extension LoginViewController:UITextFieldDelegate{
         else if textField == passwordField{
             didTapLoginButton()
         }
-        
         return true
     }
 }
