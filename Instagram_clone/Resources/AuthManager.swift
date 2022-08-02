@@ -21,15 +21,14 @@ public class AuthManager{
          */
         DatabaseManager.shared.canCreateUser(with: email, username: username, password: password){ canCreate in
             if canCreate{
-//                - create account
-//                - insert account to database
+                /* - create account
+                   - insert account to database*/
                 Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                    if error == nil, result != nil {
+                    guard error == nil, result != nil else {
                         //Firebase auth could not create an account
                         completion(false)
                         return
                     }
-                    
                     // insert database
                     DatabaseManager.shared.insertNewUser(with: email, username: username){ inserted in
                         if inserted {
@@ -41,10 +40,9 @@ public class AuthManager{
                             return
                         }
                     }
+
                 }
-            }
-            
-            else{
+            }else{
                 //either username or email does not exist
                 completion(false)
             }
