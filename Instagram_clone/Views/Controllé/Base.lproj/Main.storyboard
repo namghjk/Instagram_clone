@@ -11,7 +11,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ORQ-hg-8jf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T5I-pj-fah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController id="p0g-Mc-QjU" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kbd-1b-FKz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -27,6 +26,7 @@
                         <segue destination="o8T-Uc-uhT" kind="relationship" relationship="viewControllers" id="tok-mc-qug"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T5I-pj-fah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-194" y="179"/>
         </scene>
@@ -68,7 +68,7 @@
         <scene sceneID="GcR-vz-35V">
             <objects>
                 <navigationController id="M7e-E1-SSe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="globe" catalog="system" id="t40-0a-FDh"/>
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="t40-0a-FDh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sex-Lq-zF1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -198,8 +198,8 @@
     </scenes>
     <resources>
         <image name="bell" catalog="system" width="128" height="124"/>
-        <image name="globe" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
