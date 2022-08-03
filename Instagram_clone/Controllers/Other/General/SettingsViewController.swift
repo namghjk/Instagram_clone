@@ -52,23 +52,37 @@ class SettingsViewController: UIViewController {
       }
     
     private func didTapLogOut(){
-        AuthManager.shared.logOut(completion: {success in
-            DispatchQueue.main.async {
-                if success {
-                    //present login
-                    let loginVC = LoginViewController()
-                    loginVC.modalPresentationStyle = .fullScreen
-                    self.present(loginVC, animated: true) {
-                        self.navigationController?.popToRootViewController(animated: false)
-                        self.tabBarController?.selectedIndex = 0 
+        
+        let actionSheet = UIAlertController(title: "Log Out",
+                                            message: "Are you sure want to log out?",
+                                            preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { _ in
+            AuthManager.shared.logOut(completion: {success in
+                DispatchQueue.main.async {
+                    if success {
+                        //present login
+                        let loginVC = LoginViewController()
+                        loginVC.modalPresentationStyle = .fullScreen
+                        self.present(loginVC, animated: true) {
+                            self.navigationController?.popToRootViewController(animated: false)
+                            self.tabBarController?.selectedIndex = 0
+                        }
+                    } else {
+                        //error occured
+                        fatalError("Could not log out user")
                     }
-                } else {
-                    //error occured
                 }
-            }
-        })
+            })
+        }))
+        
+        actionSheet.popoverPresentationController?.sourceView = tableView
+        actionSheet.popoverPresentationController?.sourceRect = tableView.bounds
+        
+        
+        present(actionSheet, animated: true)
     }
- 
+
 }
 
 extension SettingsViewController:UITableViewDelegate,UITableViewDataSource{
