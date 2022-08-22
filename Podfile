@@ -7,6 +7,7 @@ target 'Instagram_clone' do
 
 
 pod 'Appirater'
+pod 'SDWebImage'
   
 # Firebase
 pod 'Firebase/Core'
