@@ -11,7 +11,9 @@ import UIKit
 final class ProfileViewController: UIViewController {
     
     private var collectionView: UICollectionView?
-
+    
+    private var userPosts = [UserPost]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -25,8 +27,7 @@ final class ProfileViewController: UIViewController {
         let size = (view.width - 4)/3
         layout.itemSize = CGSize(width: size, height: size)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
-        collectionView?.backgroundColor = .red
+    
         
         //Cell
         collectionView?.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
@@ -84,10 +85,12 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         if section == 0{
             return 0
         }
+       // return userPost.count
         return 30
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //let model = userPosts[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
        
         cell.configure(debug: "test")
@@ -95,7 +98,13 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
+//        let model = userPosts[indexPath.row]
+        //get the model and open the post controller
+        let vc = PostViewController(model: nil)
+        vc.title = "Post"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
