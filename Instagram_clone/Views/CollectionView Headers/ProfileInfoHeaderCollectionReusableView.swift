@@ -7,8 +7,18 @@
 
 import UIKit
 
+protocol ProfileInfoHeaderCollectionReusableViewDelegate: AnyObject{
+    func ProfileInfoHeaderDidTapPostsButton(_ header: ProfileInfoHeaderCollectionReusableView)
+    func ProfileInfoHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderCollectionReusableView)
+    func ProfileInfoHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderCollectionReusableView)
+    func ProfileInfoHeaderDidTapEditProfileButton(_ header: ProfileInfoHeaderCollectionReusableView)
+    
+}
+
 final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         static let identifier = "ProfileInfoHeaderCollectionReusableView"
+    
+    public weak var delegate: ProfileInfoHeaderCollectionReusableViewDelegate?
     
     private let profilePhotoImageView : UIImageView = {
        let imageView = UIImageView()
@@ -51,11 +61,17 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     
     private let nameLabel : UILabel = {
        let label = UILabel()
+        label.text = "Pham Dinh Phuong Nam"
+        label.textColor = .label
+        label.numberOfLines = 1
        return label
     }()
     
     private let bioLabel : UILabel = {
        let label = UILabel()
+        label.text = "This is a first account!"
+        label.textColor = .label
+        label.numberOfLines = 0 //line wrap
        return label
     }()
     
@@ -65,6 +81,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()
+        addButtonActions()
         backgroundColor = .systemBackground
         clipsToBounds = true
     }
@@ -77,6 +94,14 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         addSubview(nameLabel)
         addSubview(bioLabel)
         addSubview(editProfileButton )
+        
+    }
+    
+    private func addButtonActions(){
+        followingButton.addTarget(self, action: #selector(didTapFollowingButton), for: .touchUpInside)
+        followersButton.addTarget(self, action: #selector(didTapFollowersButton), for: .touchUpInside)
+        editProfileButton.addTarget(self, action: #selector(didTapEditProfileButton), for: .touchUpInside)
+        postsButton.addTarget(self, action: #selector(didTapFPostsButton), for: .touchUpInside)
         
     }
     
@@ -100,22 +125,52 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         postsButton.frame = CGRect(x: profilePhotoImageView.right,
                                    y: 5,
                                    width: countButtonWidth,
-                                   height: buttonHeight)
+                                   height: buttonHeight).integral
         
         followersButton.frame = CGRect(x: postsButton.right,
                                    y: 5,
                                    width: countButtonWidth,
-                                   height: buttonHeight)
+                                   height: buttonHeight).integral
         
         followingButton.frame = CGRect(x: followersButton.right,
                                    y: 5,
                                    width: countButtonWidth,
-                                   height: buttonHeight)
+                                   height: buttonHeight).integral
+        
         editProfileButton.frame = CGRect(x: profilePhotoImageView.right,
                                    y: 5 + buttonHeight,
                                    width: countButtonWidth*3,
-                                   height: buttonHeight)
+                                   height: buttonHeight).integral
         
+        nameLabel.frame = CGRect(x: 5,
+                                y: 5 + profilePhotoImageView.bottom,
+                                width: width-10,
+                                height: 50).integral
+        
+        let bioLabelSize = bioLabel.sizeThatFits(frame.size)
+        bioLabel.frame = CGRect(x: 5,
+                                y: 5 + nameLabel.bottom,
+                                width: width - 10,
+                                height: bioLabelSize.height).integral
+        
+    }
+    
+    //MARK: - Action
+    
+    @objc private func didTapFollowersButton(){
+        delegate?.ProfileInfoHeaderDidTapFollowersButton(self)
+    }
+    
+    @objc private func didTapFollowingButton(){
+        delegate?.ProfileInfoHeaderDidTapFollowingButton(self)
+    }
+    
+    @objc private func didTapFPostsButton(){
+        delegate?.ProfileInfoHeaderDidTapPostsButton(self)
+    }
+    
+    @objc private func didTapEditProfileButton(){
+        delegate?.ProfileInfoHeaderDidTapEditProfileButton(self)
     }
     
     
