@@ -116,7 +116,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         if indexPath.section == 1 {
             let tabsController = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileTabsCollectionReusableView.identifier, for: indexPath) as!  ProfileTabsCollectionReusableView
-            
+            tabsController.delegate = self
             return tabsController
             
         }
@@ -136,7 +136,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
        //size section tabs
         return CGSize(width: collectionView.width,
-                      height: 65)
+                      height: 50)
        
     }
     
@@ -151,14 +151,14 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     }
     
     func ProfileInfoHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewViewController()
+        let vc = ListViewViewController(data: ["Nam", "Nam", "Nam", "Nam", "Nam"])
         vc.title = "Followers"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func ProfileInfoHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewViewController()
+        let vc = ListViewViewController(data: ["Nam", "Nam", "Nam", "Nam", "Nam"])
         vc.title = "Following"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
@@ -171,4 +171,17 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     }
     
     
+}
+
+extension ProfileViewController: ProfileTabsCollectionReusableViewDelegate {
+    
+    func didTapGridButtonTab() {
+        //Reload collectionView with data
+    }
+
+    func didTapTaggedButtonTab() {
+        
+    }
+
+
 }

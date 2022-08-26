@@ -18,6 +18,10 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
     
     public weak var delegate: ProfileTabsCollectionReusableViewDelegate?
     
+    struct Constains{
+        static let padding: CGFloat = 6
+    }
+    
     private let gridButton: UIButton = {
         let button = UIButton()
         button.clipsToBounds = true
@@ -29,7 +33,7 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
     private let taggedButton: UIButton = {
         let button = UIButton()
         button.clipsToBounds = true
-        button.tintColor = .secondarySystemBackground
+        button.tintColor = .lightGray
         button.setBackgroundImage(UIImage(systemName: "tag"), for: .normal)
         return button
     }()
@@ -49,10 +53,14 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
     }
     
     @objc private func didTapGridButton(){
+        gridButton.tintColor = .systemBlue
+        taggedButton.tintColor = .lightGray
         delegate?.didTapGridButtonTab()
     }
     
     @objc private func didTapTaggedButton(){
+        gridButton.tintColor = .lightGray
+        taggedButton.tintColor = .systemBlue
         delegate?.didTapTaggedButtonTab()
     }
     
@@ -64,7 +72,7 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
         super.layoutSubviews()
        //assign frame
         
-        let size = height - 4
+        let size = height - (Constains.padding * 2)
         let gridButtonX = ((width/2) - size)/2
         gridButton.frame = CGRect(x: gridButtonX,
                                   y: 2,
