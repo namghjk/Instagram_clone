@@ -19,7 +19,9 @@ class UserFollowTableViewCell: UITableViewCell {
 
     private let profileImageView: UIImageView = {
        let imagView = UIImageView()
-        imagView.contentMode = .scaleAspectFit
+        imagView.layer.masksToBounds = true
+        imagView.backgroundColor = .secondarySystemBackground
+        imagView.contentMode = .scaleAspectFill
        return imagView
     }()
     
@@ -68,10 +70,22 @@ class UserFollowTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        //assign frame
+        profileImageView.frame = CGRect(x: 3,
+                                        y: 3,
+                                        width: contentView.height - 6,
+                                        height: contentView.height - 6)
+        let labelHeight = contentView.height/2
+        nameLabel.frame = CGRect(x: profileImageView.right + 5,
+                                 y: 0,
+                                 width: contentView.width-3-profileImageView.width,
+                                 height: labelHeight)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
     
 }
