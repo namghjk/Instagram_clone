@@ -151,21 +151,29 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     }
     
     func ProfileInfoHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewViewController(data: ["Nam", "Nam", "Nam", "Nam", "Nam"])
+        var mockData = [UserRelationship]()
+        for x in 0..<10{
+            mockData.append(UserRelationship(username: "@P_Nam", name: "Pham Dinh Phuong Nam", type: x % 2 == 0 ? .following :.not_following))
+        }
+        let vc = ListViewViewController(data: mockData)
         vc.title = "Followers"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func ProfileInfoHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewViewController(data: ["Nam", "Nam", "Nam", "Nam", "Nam"])
+        var mockData = [UserRelationship]()
+        for x in 0..<10{
+            mockData.append(UserRelationship(username: "@P_Nam", name: "Pham Dinh Phuong Nam", type: x % 2 == 0 ? .following :.not_following))
+        }
+        let vc = ListViewViewController(data: mockData)
         vc.title = "Following"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func ProfileInfoHeaderDidTapEditProfileButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = EditProfileViewController()
+        var vc = EditProfileViewController()
         vc.title = "Edit Profile"
         present(UINavigationController(rootViewController: vc), animated: true)
     }
