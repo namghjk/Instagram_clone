@@ -13,7 +13,8 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
     private let tableView : UITableView = {
         let tableView = UITableView()
         tableView.isHidden = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(NotificationLikeEventTableViewCell.self, forCellReuseIdentifier: NotificationLikeEventTableViewCell.identifier)
+        tableView.register(NotificationFollowEventTableViewCell.self, forCellReuseIdentifier: NotificationFollowEventTableViewCell.identifier)
         return tableView
     }()
     
@@ -31,7 +32,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
         navigationItem.title = "Notifications"
         view.backgroundColor = .systemBackground
         view.addSubview(spinner)
-        spinner.startAnimating()
+        //spinner.startAnimating()
         view.addSubview(noNotifications)
         tableView.dataSource = self
         tableView.delegate = self
