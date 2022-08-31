@@ -67,6 +67,7 @@ class UserFollowTableViewCell: UITableViewCell {
         contentView.addSubview(nameLabel)
         contentView.addSubview(userNameLabel)
         contentView.addSubview(followButton)
+        selectionStyle = .none
         followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
     
     }

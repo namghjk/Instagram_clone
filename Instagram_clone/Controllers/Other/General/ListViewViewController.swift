@@ -61,6 +61,7 @@ extension ListViewViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserFollowTableViewCell.identifier, for: indexPath) as! UserFollowTableViewCell
         cell.configure(with: data[indexPath.row])
+        cell.delegate = self
         return cell
     }
     
@@ -75,3 +76,20 @@ extension ListViewViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+extension ListViewViewController: UserFollowTableViewCellDelegate{
+    
+    func didTapFollowUnfollowButton(model: UserRelationship) {
+        switch model.type {
+        case .following:
+            //perform firebase update to unfollow
+            break
+        case .not_following:
+            //perform firebase update to unfollow
+            break
+        }
+    }
+}
+    
+    
+

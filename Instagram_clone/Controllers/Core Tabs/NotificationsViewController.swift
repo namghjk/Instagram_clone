@@ -15,14 +15,24 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return tableView
     }()
+    
+    private lazy var noNotifications = NoNotificationsView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Notifications"
+        navigationItem.title = "Notifications"
         view.backgroundColor = .systemBackground
-        view.addSubview(tableView)
+        //view.addSubview(tableView)
+        view.addSubview(noNotifications)
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+        noNotifications.frame = CGRect(x: 0, y: 0, width: view.width/2, height: view.width/2)
+        noNotifications.center = view.center
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
