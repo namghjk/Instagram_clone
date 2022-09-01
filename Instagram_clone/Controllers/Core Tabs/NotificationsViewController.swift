@@ -27,6 +27,7 @@ final class NotificationsViewController: UIViewController,UITableViewDelegate,UI
         tableView.isHidden = false
         tableView.register(NotificationLikeEventTableViewCell.self, forCellReuseIdentifier: NotificationLikeEventTableViewCell.identifier)
         tableView.register(NotificationFollowEventTableViewCell.self, forCellReuseIdentifier: NotificationFollowEventTableViewCell.identifier)
+      
         return tableView
     }()
     

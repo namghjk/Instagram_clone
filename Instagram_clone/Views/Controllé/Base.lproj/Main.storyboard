@@ -17,6 +17,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" systemColor="labelColor"/>
+                        <tabBarAppearance key="scrollEdgeAppearance"/>
                     </tabBar>
                     <connections>
                         <segue destination="OXE-nH-xXv" kind="relationship" relationship="viewControllers" id="wls-U8-HVk"/>
@@ -38,6 +39,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MMf-e2-gvd">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <connections>
                         <segue destination="dlg-IP-mSt" kind="relationship" relationship="rootViewController" id="5UD-Le-VMV"/>
@@ -55,6 +58,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sep-RU-EBk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <connections>
                         <segue destination="FXc-a8-muo" kind="relationship" relationship="rootViewController" id="Gaq-Nh-tUm"/>
@@ -72,6 +77,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sex-Lq-zF1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <connections>
                         <segue destination="ZW9-HA-htl" kind="relationship" relationship="rootViewController" id="IcS-Uv-m4v"/>
@@ -89,6 +96,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JQ7-iU-PEo">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <connections>
                         <segue destination="5eK-a7-iRN" kind="relationship" relationship="rootViewController" id="pwO-Kc-34b"/>
@@ -105,7 +114,7 @@
                     <view key="view" contentMode="scaleToFill" id="qYp-l6-8KH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="RPr-UD-dsc"/>
+                        <viewLayoutGuide key="safeArea" id="tkE-kX-6K2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="qyG-sh-cMr"/>
@@ -121,7 +130,7 @@
                     <view key="view" contentMode="scaleToFill" id="hTb-4c-rLS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="UWe-Cy-B01"/>
+                        <viewLayoutGuide key="safeArea" id="WQq-98-cnP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="cOv-gf-mti"/>
@@ -137,7 +146,7 @@
                     <view key="view" contentMode="scaleToFill" id="sTI-EQ-mjP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="zij-gE-MEd"/>
+                        <viewLayoutGuide key="safeArea" id="0ZI-Nw-Oyx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="mLR-qA-b2g"/>
@@ -153,7 +162,7 @@
                     <view key="view" contentMode="scaleToFill" id="93P-us-2q8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="kFq-o2-sQ5"/>
+                        <viewLayoutGuide key="safeArea" id="6lh-R0-cMI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="xGp-dh-6sw"/>
@@ -169,7 +178,7 @@
                     <view key="view" contentMode="scaleToFill" id="PYb-Gf-xjr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="hap-ps-sSu"/>
+                        <viewLayoutGuide key="safeArea" id="z7A-1b-WwF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="gKv-HQ-AhW"/>
@@ -186,6 +195,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ieh-Xk-xdG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <connections>
                         <segue destination="UkV-6t-AKw" kind="relationship" relationship="rootViewController" id="bUp-5P-atJ"/>
