@@ -9,7 +9,7 @@ import UIKit
 
 enum UserNotificationType{
     case like(post: UserPost)
-    case follow
+    case follow(state: FollowState )
 }
 
 struct UserNotification{
@@ -73,8 +73,8 @@ final class NotificationsViewController: UIViewController,UITableViewDelegate,UI
                                 createdDate: Date(),
                                 taggedUsers: [])
             
-            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow,
-                                         text: "Hello world",
+            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow(state: .not_following),
+                                         text: "",
                                          user: User(username: "Nam",
                                                     bio: "",
                                                     name: (first: "", last:""),
@@ -116,11 +116,13 @@ final class NotificationsViewController: UIViewController,UITableViewDelegate,UI
             //like cell
             let cell = tableView.dequeueReusableCell(withIdentifier: NotificationLikeEventTableViewCell.identifier, for: indexPath) as! NotificationLikeEventTableViewCell
             cell.configure(with: model)
+            cell.delegate = self
             return cell
         case .follow:
             //follow cell
             let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFollowEventTableViewCell.identifier, for: indexPath) as! NotificationFollowEventTableViewCell
-            cell.configure(with: model)
+            //cell.configure(with: model)
+            cell.delegate = self
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -129,8 +131,26 @@ final class NotificationsViewController: UIViewController,UITableViewDelegate,UI
     }
     
    
-   
-    
-
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+  
 }
+
+
+
+
+extension NotificationsViewController: NotificationLikeEventTableViewCellDelegate{
+    func didTapRelativePostButton(with: UserNotification) {
+        print("Tapped Post")
+        //open the post
+    }
+}
+
+extension NotificationsViewController: NotificationFollowEventTableViewCellDelegate{
+    func didTapFollowUnFollowButton(with: UserNotification) {
+        print("Tapped button")
+        //perform database update
+    }
+}
+    
