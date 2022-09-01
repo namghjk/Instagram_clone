@@ -16,6 +16,8 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
     
     weak var delegate: NotificationFollowEventTableViewCellDelegate?
     
+    private var model: UserNotification?
+    
     private let profileImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.layer.masksToBounds = true
@@ -47,8 +49,17 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(with model: String){
-        
+    public func configure(with model: UserNotification){
+        self.model = model
+        switch model.type{
+        case .like(let post):
+            let thumbnail = post.thumbnailImage
+            
+        case.follow:
+           break
+        }
+        label.text = model.text
+        profileImageView.sd_setImage(with: model.user.profilePhoto, completed: nil)
     }
     
     override func prepareForReuse() {

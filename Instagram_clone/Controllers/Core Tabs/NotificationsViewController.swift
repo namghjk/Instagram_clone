@@ -7,7 +7,19 @@
 
 import UIKit
 
-class NotificationsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+enum UserNotificationType{
+    case like(post: UserPost)
+    case follow
+}
+
+struct UserNotification{
+    let type: UserNotificationType
+    let text: String
+    let user: User
+    
+}
+
+final class NotificationsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
    
     
     private let tableView : UITableView = {
@@ -26,17 +38,52 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
     }()
     
     private lazy var noNotifications = NoNotificationsView()
+    
+    private var models = [UserNotification]()
+    
+    
+    //MARK: -life cycle
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchNotifications()
         navigationItem.title = "Notifications"
         view.backgroundColor = .systemBackground
         view.addSubview(spinner)
         //spinner.startAnimating()
         view.addSubview(noNotifications)
+        view.addSubview(tableView)
         tableView.dataSource = self
-        tableView.delegate = self
-        
+        tableView.delegate = self        
+    }
+    
+    
+    private func fetchNotifications(){
+        for x in 0...100{
+            
+            let post = UserPost(identifier: "",
+                                postType: .photo,
+                                thumbnailImage: URL(string: "https://www.google.com.vn/")!,
+                                postURL: URL(string: "https://www.google.com.vn/")!,
+                                caption: nil,
+                                likeCount: [],
+                                comments: [],
+                                createdDate: Date(),
+                                taggedUsers: [])
+            
+            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow,
+                                         text: "Hello world",
+                                         user: User(username: "Nam",
+                                                    bio: "",
+                                                    name: (first: "", last:""),
+                                                    profilePhoto: URL(string: "https://www.google.com.vn/")!,
+                                                    birthDate: Date(),
+                                                    gender: .male,
+                                                    counts: UserCount(followers: 1, following: 1, posts: 1),
+                                                    joinDate: Date()))
+            models.append(model)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -55,11 +102,26 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
         noNotifications.center = view.center
     }
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = models[indexPath.row]
+        switch model.type{
+        case .like(_):
+            //like cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: NotificationLikeEventTableViewCell.identifier, for: indexPath) as! NotificationLikeEventTableViewCell
+            cell.configure(with: model)
+            return cell
+        case .follow:
+            //follow cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFollowEventTableViewCell.identifier, for: indexPath) as! NotificationFollowEventTableViewCell
+            cell.configure(with: model)
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         return cell

@@ -105,7 +105,7 @@
                     <view key="view" contentMode="scaleToFill" id="qYp-l6-8KH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="tkE-kX-6K2"/>
+                        <viewLayoutGuide key="safeArea" id="RPr-UD-dsc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="qyG-sh-cMr"/>
@@ -121,7 +121,7 @@
                     <view key="view" contentMode="scaleToFill" id="hTb-4c-rLS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="WQq-98-cnP"/>
+                        <viewLayoutGuide key="safeArea" id="UWe-Cy-B01"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="cOv-gf-mti"/>
@@ -137,7 +137,7 @@
                     <view key="view" contentMode="scaleToFill" id="sTI-EQ-mjP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="0ZI-Nw-Oyx"/>
+                        <viewLayoutGuide key="safeArea" id="zij-gE-MEd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="mLR-qA-b2g"/>
@@ -153,7 +153,7 @@
                     <view key="view" contentMode="scaleToFill" id="93P-us-2q8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6lh-R0-cMI"/>
+                        <viewLayoutGuide key="safeArea" id="kFq-o2-sQ5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="xGp-dh-6sw"/>
@@ -169,7 +169,7 @@
                     <view key="view" contentMode="scaleToFill" id="PYb-Gf-xjr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="z7A-1b-WwF"/>
+                        <viewLayoutGuide key="safeArea" id="hap-ps-sSu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="gKv-HQ-AhW"/>
