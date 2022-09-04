@@ -5,6 +5,21 @@
 //  Created by namghjk on 22/07/2022.
 //
 
+/*
+ Section:
+  - Header model
+ Section:
+  - Post cell model
+ Section:
+  - Action button cell model
+ Section:
+  - n number of general models for comments
+ */
+
+
+
+
+
 import UIKit
 
 class PostViewController: UIViewController {
@@ -13,8 +28,19 @@ class PostViewController: UIViewController {
     
     private let tableView : UITableView = {
         let tableView = UITableView()
+        
+        //register the cell for tableview
+        tableView.register(IGFeedPostUITableViewCell.self, forCellReuseIdentifier: "IGFeedPostUITableViewCell")
+        tableView.register(IGFeedPostHeaderTableViewCell.self, forCellReuseIdentifier: "IGFeedPostHeaderTableViewCell")
+        tableView.register(IGFeedPostActionsTableViewCell.self, forCellReuseIdentifier: "IGFeedPostActionsTableViewCell")
+        tableView.register(IGFeedPostGeneralTableViewCell.self, forCellReuseIdentifier: "IGFeedPostGeneralTableViewCell")
+        
+        
         return tableView
+        
     }()
+    
+    //MARK: -init
     
     init (model: UserPost?){
         self.model = model
@@ -25,6 +51,7 @@ class PostViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self

@@ -1,15 +1,15 @@
 //
-//  IGFeedPostUITableViewCell.swift
+//  IGFeedPostGeneralTableViewCell.swift
 //  Instagram_clone
 //
-//  Created by namghjk on 04/08/2022.
+//  Created by namghjk on 05/08/2022.
 //
 
 import UIKit
 
-final class IGFeedPostUITableViewCell: UITableViewCell {
-    
-    static let identifier = "IGFeedPostUITableViewCell"
+class IGFeedPostGeneralTableViewCell: UITableViewCell {
+
+    static let identifier = "IGFeedPostGeneralTableViewCell"
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -20,6 +20,11 @@ final class IGFeedPostUITableViewCell: UITableViewCell {
     }
     
     public func configure(){
-        
+        //configure the cell
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+
 }
