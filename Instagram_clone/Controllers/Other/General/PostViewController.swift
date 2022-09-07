@@ -16,8 +16,19 @@
   - n number of general models for comments
  */
 
+///states of a rendered cell
+enum PostRenderType {
+    case header(provider: User)
+    case primaryContent(provider: UserPost)//post
+    case actions(provider: String) //like, comment, share
+    case comments(comments: [PostComment])
+}
 
-
+//Model of rendered post
+struct PostRenderViewModel{
+    let renderType: PostRenderType
+    
+}
 
 
 import UIKit
@@ -25,6 +36,8 @@ import UIKit
 class PostViewController: UIViewController {
     
     private let model: UserPost?
+    
+    private var renderModel = [PostRenderViewModel]()
     
     private let tableView : UITableView = {
         let tableView = UITableView()
@@ -72,15 +85,40 @@ class PostViewController: UIViewController {
 extension PostViewController : UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return renderModel.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        switch renderModel[section].renderType{
+        case.actions(_): return 1
+        case.comments(let comments): return comments.count > 4 ? 4 : comments.count
+        case.header(_): return 1
+        case.primaryContent(_): return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let model = renderModel[indexPath.section]
+        
+        switch model.renderType {
+            
+        case.actions(let actions):
+            let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostActionsTableViewCell.identifier, for: indexPath) as! IGFeedPostActionsTableViewCell
+            return cell
+            
+        case.comments(let comments):
+            let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostGeneralTableViewCell.identifier, for: indexPath) as! IGFeedPostGeneralTableViewCell
+            return cell
+            
+        case.header(let user):
+            let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostHeaderTableViewCell.identifier, for: indexPath) as! IGFeedPostHeaderTableViewCell
+            return cell
+            
+        case.primaryContent(let posts):
+            let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostUITableViewCell.identifier, for: indexPath) as! IGFeedPostUITableViewCell
+            return cell
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
