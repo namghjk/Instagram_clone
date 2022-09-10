@@ -7,9 +7,10 @@
 
 import UIKit
 
-final class IGFeedPostUITableViewCell: UITableViewCell {
+final class IGFeedPostTableViewCell: UITableViewCell {
     
-    static let identifier = "IGFeedPostUITableViewCell"
+    static let identifier = "IGFeedPostTableViewCell"
+    
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -21,6 +22,7 @@ final class IGFeedPostUITableViewCell: UITableViewCell {
        
     }
     
+    
     public func configure(){
         //configure the cell
     }
@@ -28,5 +30,6 @@ final class IGFeedPostUITableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
     }
+    
     
 }

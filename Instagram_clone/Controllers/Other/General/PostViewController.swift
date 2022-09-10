@@ -42,15 +42,14 @@ class PostViewController: UIViewController {
         let tableView = UITableView()
         
         //register the cell for tableview
-        tableView.register(IGFeedPostUITableViewCell.self,
-                           forCellReuseIdentifier: IGFeedPostUITableViewCell.identifier)
         tableView.register(IGFeedPostHeaderTableViewCell.self,
-                           forCellReuseIdentifier: IGFeedPostHeaderTableViewCell.identifier)
-        tableView.register(IGFeedPostActionsTableViewCell.self,
-                           forCellReuseIdentifier: IGFeedPostActionsTableViewCell.identifier)
+                           forCellReuseIdentifier:  IGFeedPostHeaderTableViewCell.identifier)
         tableView.register(IGFeedPostGeneralTableViewCell.self,
                            forCellReuseIdentifier: IGFeedPostGeneralTableViewCell.identifier)
-        
+        tableView.register(IGFeedPostActionsTableViewCell.self,
+                           forCellReuseIdentifier: IGFeedPostActionsTableViewCell.identifier)
+        tableView.register(IGFeedPostTableViewCell.self,
+                           forCellReuseIdentifier: IGFeedPostTableViewCell.identifier)
         
         return tableView
         
@@ -145,6 +144,7 @@ extension PostViewController : UITableViewDelegate, UITableViewDataSource {
             
         case.comments(let comments):
             let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostGeneralTableViewCell.identifier, for: indexPath) as! IGFeedPostGeneralTableViewCell
+            
             return cell
             
         case.header(let user):
@@ -152,7 +152,7 @@ extension PostViewController : UITableViewDelegate, UITableViewDataSource {
             return cell
             
         case.primaryContent(let post):
-            let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostUITableViewCell.identifier, for: indexPath) as! IGFeedPostUITableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostTableViewCell.identifier, for: indexPath) as! IGFeedPostTableViewCell
             return cell
         }
         
